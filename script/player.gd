@@ -39,4 +39,8 @@ func play_anim(dir):
 			$AnimatedSprite2D.play("nw-walk")	
 func player():
 	pass
+	
+func collect(item):
+	inv.insert(item)
+	
 		
