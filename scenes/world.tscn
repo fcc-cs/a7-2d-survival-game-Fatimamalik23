@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://ddmxtjn4po6k8"]
+[gd_scene load_steps=13 format=3 uid="uid://ddmxtjn4po6k8"]
 
 [ext_resource type="PackedScene" uid="uid://bcd70ofxpjsar" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="Texture2D" uid="uid://ce05ym637vykk" path="res://art/Puny-Characters/survivalgame-terrian-defult.png" id="2_k0juu"]
 [ext_resource type="Texture2D" uid="uid://61083ogotdv2" path="res://art/Puny-Characters/survivalgame-terrian-cliffs.png" id="3_71j4m"]
 [ext_resource type="Texture2D" uid="uid://cnce2r37um0w8" path="res://art/Puny-Characters/survivalgame-trees.png" id="4_k0juu"]
 [ext_resource type="Texture2D" uid="uid://drohqdo6qhr5b" path="res://art/Puny-Characters/survivalgame-terrian-water.png" id="5_71j4m"]
+[ext_resource type="PackedScene" uid="uid://ctgn4gd43avuu" path="res://scenes/stick_collectable.tscn" id="6_i7141"]
 [ext_resource type="PackedScene" uid="uid://hw22ff6yb3bg" path="res://scenes/apple_tree.tscn" id="6_qfnet"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k0juu"]
@@ -271,11 +272,20 @@ layer_1/tile_data = PackedInt32Array(-262150, 1, 2, -327686, 1, 1, -393222, 1, 1
 layer_2/name = "3"
 layer_2/tile_data = PackedInt32Array(-458755, 524290, 1, -655359, 589826, 2, -720887, 524290, 1, -655349, 524290, 1, -524279, 524290, 1, -524275, 524290, 1, -393206, 524290, 1, -655346, 524290, 1, -393204, 524290, 1, -196597, 524290, 1, -131077, 524290, 1, -65539, 524290, 1, -196608, 524290, 1, 65532, 524290, 1, -65522, 524290, 1, -327664, 524290, 1, 10, 524290, 1, 131084, 524290, 1, 196604, 524290, 1, 196601, 524290, 1, 262142, 524290, 1, -786431, 589826, 0, -720895, 589826, 1, -655358, 655362, 2, -655357, 720898, 2, -720894, 655362, 1, -786430, 655362, 0, -720893, 720898, 1, -786429, 720898, 0, 393209, 2, 1, 327673, 2, 0, 327674, 65538, 0, 327675, 131074, 0, 393211, 131074, 1, 393210, 65538, 1, 458745, 2, 2, 458746, 65538, 2, 458747, 131074, 2, -131066, 524290, 0, 65540, 524290, 0, 458750, 1048578, 2, 458749, 983042, 2, 393214, 1048578, 1, 393213, 983042, 1, 327678, 1048578, 0, 327677, 983042, 0, 327676, 1114114, 0, 393212, 1114114, 1, 458748, 1114114, 2, 327672, 1114114, 2, 393208, 1114114, 2, 458744, 1114114, 2, 458751, 1048578, 2, 393215, 1048578, 1, 327679, 1048578, 0, 393217, 393218, 2, 327681, 393218, 1, 262145, 393218, 0, 262146, 458754, 0, 327682, 458754, 1, 393218, 458754, 2, 393219, 458754, 2, 327683, 458754, 1, 262147, 458754, 0, 262148, 262146, 1, 327684, 262146, 1, 393220, 262146, 1, 393221, 262146, 1, 327685, 262146, 1, 262149, 262146, 1, 262150, 262146, 1, 327686, 262146, 1, 393222, 262146, 1, 393223, 262146, 1, 327687, 262146, 1, 262151, 262146, 1, 262152, 262146, 1, 262153, 262146, 1, 327689, 262146, 1, 327688, 262146, 1, 393224, 262146, 1, 393225, 262146, 1, 393226, 262146, 1, 327690, 262146, 1, 262154, 262146, 1, 262155, 262146, 0, 262156, 262146, 1, 262157, 262146, 1, 262158, 262146, 1, 262159, 262146, 1, 327696, 262146, 1, 393232, 262146, 1, 262160, 262146, 1, 327695, 262146, 1, 327694, 262146, 1, 327693, 262146, 1, 327692, 262146, 1, 327691, 262146, 1, 393231, 262146, 1, 393230, 262146, 1, 393229, 262146, 1, 393228, 262146, 1, 393227, 262146, 2)
 
-[node name="player" parent="." instance=ExtResource("1_nnsk1")]
-position = Vector2(1, -38)
-
 [node name="apple_tree" parent="." instance=ExtResource("6_qfnet")]
 position = Vector2(131, -56)
 
 [node name="apple_tree2" parent="." instance=ExtResource("6_qfnet")]
 position = Vector2(8, 34)
+
+[node name="stick_collectable" parent="." instance=ExtResource("6_i7141")]
+position = Vector2(175, 90)
+
+[node name="stick_collectable2" parent="." instance=ExtResource("6_i7141")]
+position = Vector2(-164, 102)
+
+[node name="stick_collectable3" parent="." instance=ExtResource("6_i7141")]
+position = Vector2(-76, -100)
+
+[node name="player" parent="." instance=ExtResource("1_nnsk1")]
+position = Vector2(1, -38)
