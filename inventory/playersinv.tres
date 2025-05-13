@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://ciitgtw3gq13q" path="res://inventory/inventory_item.gd" id="1_6m2ba"]
 [ext_resource type="Resource" uid="uid://8a5ujdt5ovkx" path="res://inventory/items/apple.tres" id="2_cwuld"]
-[ext_resource type="Script" uid="uid://b1t6l168a2qc4" path="res://inventory/inventory.gd" id="3_jvmdt"]
+[ext_resource type="Script" uid="uid://b1t6l168a2qc4" path="res://inventory/inventory.gd" id="3_6m2ba"]
 
 [resource]
-script = ExtResource("3_jvmdt")
-items = Array[ExtResource("1_6m2ba")]([null, null, ExtResource("2_cwuld"), null, null, null, ExtResource("2_cwuld"), ExtResource("2_cwuld"), null, null, null, null])
+script = ExtResource("3_6m2ba")
+items = Array[ExtResource("1_6m2ba")]([ExtResource("2_cwuld"), null, null, null, null, ExtResource("2_cwuld"), ExtResource("2_cwuld"), null, null, null, null, ExtResource("2_cwuld")])
 metadata/_custom_type_script = "uid://b1t6l168a2qc4"
