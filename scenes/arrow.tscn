@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctx5v2h0t6ap"]
+
+[ext_resource type="Script" uid="uid://6ed7jdunp37t" path="res://script/arrow.gd" id="1_23jat"]
+[ext_resource type="Texture2D" uid="uid://cnselxsdu0j26" path="res://icon.svg" id="1_umosx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_23jat"]
+radius = 8.0
+height = 32.0
+
+[node name="arrow" type="Area2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_23jat")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0.22974, -0.00674057)
+rotation = 1.5708
+scale = Vector2(0.0467697, 0.22234)
+texture = ExtResource("1_umosx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_23jat")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(0, 4.17233e-07)
+scale = Vector2(0.2, 0.8)
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
