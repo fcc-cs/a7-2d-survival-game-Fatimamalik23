@@ -7,17 +7,31 @@ var has_player_entered_area= false
 var player= null
 
 var is_pathfollowing= false
+var smoke_has_happend = false
+var smoke_is_happening= false
 
 func _physics_process(delta):
 	if is_openingcutscene:
 		var pathfollower= $world2openingcutscene/Path2D/PathFollow2D
 		
 		if is_pathfollowing:
-			pathfollower.progress_ratio+= 0.001
+			if !smoke_is_happening:
+				pathfollower.progress_ratio+= 0.001
+			
 			if pathfollower.progress_ratio>=1:
 				cutsceneending()
-				
-
+			
+			if !smoke_has_happend and pathfollower.progress_ratio>=0.78 and !smoke_is_happening:
+				smoke_is_happening= true
+				toggle_smoke()
+				await get_tree().create_timer(1).timeout
+				$world2openingcutscene/TileMapFinished.visible = true
+				$world2openingcutscene/TileMapUnFinished2.visible = false
+				toggle_smoke()
+				await get_tree().create_timer(0.5).timeout
+				 
+				smoke_has_happend= true
+				smoke_is_happening= false
 
 func _on_player_detection_body_entered(body):
 	if body.has_method("player"):
@@ -25,6 +39,7 @@ func _on_player_detection_body_entered(body):
 		if !has_player_entered_area:
 			has_player_entered_area= true
 			cutsceneopening()
+			
 func cutsceneopening():
 	is_openingcutscene= true
 	animplayer.play("cover_fade")
@@ -39,3 +54,13 @@ func cutsceneending():
 	player.camera.enabled= true
 	$world2openingcutscene.visible= false
 	$world2main.visible= true
+	
+func toggle_smoke():
+	var smoke1= $world2openingcutscene/SmokeParticles1
+	var smoke2= $world2openingcutscene/SmokeParticles2
+	var smoke3= $world2openingcutscene/SmokeParticles3
+	var smoke4= $world2openingcutscene/SmokeParticles4
+	smoke1.emitting= !smoke1.emitting	
+	smoke2.emitting= !smoke2.emitting	
+	smoke3.emitting= !smoke3.emitting	
+	smoke4.emitting= !smoke4.emitting	

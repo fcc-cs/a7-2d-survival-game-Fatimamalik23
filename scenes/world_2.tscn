@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://6xy5nbba761"]
+[gd_scene load_steps=18 format=3 uid="uid://6xy5nbba761"]
 
 [ext_resource type="Script" uid="uid://trnux68dcew5" path="res://script/world_2.gd" id="1_3m0gu"]
 [ext_resource type="Texture2D" uid="uid://ce05ym637vykk" path="res://art/Puny-Characters/survivalgame-terrian-defult.png" id="1_axyqp"]
 [ext_resource type="Texture2D" uid="uid://61083ogotdv2" path="res://art/Puny-Characters/survivalgame-terrian-cliffs.png" id="2_3m0gu"]
 [ext_resource type="Texture2D" uid="uid://cnce2r37um0w8" path="res://art/Puny-Characters/survivalgame-trees.png" id="3_o7h1l"]
 [ext_resource type="Texture2D" uid="uid://drohqdo6qhr5b" path="res://art/Puny-Characters/survivalgame-terrian-water.png" id="4_rwd0d"]
+[ext_resource type="Texture2D" uid="uid://rlym8m42gla5" path="res://art/SmokePartical.png" id="6_o7h1l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hgrhv"]
 texture = ExtResource("1_axyqp")
@@ -307,18 +308,27 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o7h1l"]
-size = Vector2(69, 36)
+size = Vector2(69, 24)
 
 [sub_resource type="Curve2D" id="Curve2D_3m0gu"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 24, 304, 0, 0, 0, 0, -134, 365, 0, 0, 0, 0, -233, 414.233, 0, 0, 0, 0, -238.931, 565.804, 0, 0, 0, 0, -174.681, 681.943, 0, 0, 0, 0, -83.7423, 747.886, 0, 0, 0, 0, 295.827, 749.855)
+"points": PackedVector2Array(0, 0, 0, 0, 28, 304, 0, 0, 0, 0, -134, 365, 0, 0, 0, 0, -208.288, 412.265, 0, 0, 0, 0, -214.219, 547.104, 0, 0, 0, 0, -174.681, 667.18, 0, 0, 0, 0, -63.9731, 717.375, 0, 0, 0, 0, 275.069, 717.375)
 }
 point_count = 7
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rwd0d"]
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 50.0
+linear_accel_max = 100.0
 
 [node name="world2" type="Node2D"]
 script = ExtResource("1_3m0gu")
 
 [node name="world2main" type="Node2D" parent="."]
+visible = false
 
 [node name="TileMap" type="TileMap" parent="world2main"]
 y_sort_enabled = true
@@ -336,6 +346,7 @@ layer_2/name = "3"
 [node name="world2openingcutscene" type="Node2D" parent="."]
 
 [node name="TileMapFinished" type="TileMap" parent="world2openingcutscene"]
+visible = false
 y_sort_enabled = true
 position = Vector2(6, 9)
 tile_set = SubResource("TileSet_phgsc")
@@ -349,7 +360,6 @@ layer_1/tile_data = PackedInt32Array(524296, 262146, 1, 589832, 262146, 1, 65536
 layer_2/name = "3"
 
 [node name="TileMapUnFinished2" type="TileMap" parent="world2openingcutscene"]
-visible = false
 y_sort_enabled = true
 position = Vector2(6, 9)
 tile_set = SubResource("TileSet_phgsc")
@@ -363,10 +373,10 @@ layer_1/tile_data = PackedInt32Array(524296, 262146, 1, 589832, 262146, 1, 65536
 layer_2/name = "3"
 
 [node name="ColorRect" type="ColorRect" parent="world2openingcutscene"]
-offset_left = -314.0
-offset_top = 291.0
-offset_right = 685.0
-offset_bottom = 811.0
+offset_left = -317.0
+offset_top = 289.0
+offset_right = 686.0
+offset_bottom = 810.0
 color = Color(0, 0, 0, 0.784314)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="world2openingcutscene"]
@@ -377,20 +387,53 @@ libraries = {
 [node name="player_detection" type="Area2D" parent="world2openingcutscene"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="world2openingcutscene/player_detection"]
-position = Vector2(24.5, 302)
+position = Vector2(24.5, 296)
 shape = SubResource("RectangleShape2D_o7h1l")
 
 [node name="Path2D" type="Path2D" parent="world2openingcutscene"]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(-0.280151, -4.8718)
 scale = Vector2(1.01167, 1.01603)
 curve = SubResource("Curve2D_3m0gu")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="world2openingcutscene/Path2D"]
-position = Vector2(24, 304)
-rotation = 2.77315
+position = Vector2(28, 304)
+rotation = 2.78147
 loop = false
 
 [node name="Camera2D" type="Camera2D" parent="world2openingcutscene/Path2D/PathFollow2D"]
-zoom = Vector2(6, 6)
+zoom = Vector2(4.5, 4.5)
+
+[node name="SmokeParticles1" type="GPUParticles2D" parent="world2openingcutscene"]
+position = Vector2(17, 748)
+emitting = false
+amount = 800
+sub_emitter = NodePath(".")
+texture = ExtResource("6_o7h1l")
+process_material = SubResource("ParticleProcessMaterial_rwd0d")
+
+[node name="SmokeParticles2" type="GPUParticles2D" parent="world2openingcutscene"]
+position = Vector2(-55, 747)
+emitting = false
+amount = 800
+sub_emitter = NodePath(".")
+texture = ExtResource("6_o7h1l")
+process_material = SubResource("ParticleProcessMaterial_rwd0d")
+
+[node name="SmokeParticles3" type="GPUParticles2D" parent="world2openingcutscene"]
+position = Vector2(-92, 750)
+emitting = false
+amount = 800
+sub_emitter = NodePath(".")
+texture = ExtResource("6_o7h1l")
+process_material = SubResource("ParticleProcessMaterial_rwd0d")
+
+[node name="SmokeParticles4" type="GPUParticles2D" parent="world2openingcutscene"]
+position = Vector2(-27, 750)
+emitting = false
+amount = 800
+sub_emitter = NodePath(".")
+texture = ExtResource("6_o7h1l")
+process_material = SubResource("ParticleProcessMaterial_rwd0d")
 
 [connection signal="body_entered" from="world2openingcutscene/player_detection" to="." method="_on_player_detection_body_entered"]
