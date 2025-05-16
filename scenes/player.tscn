@@ -342,7 +342,7 @@ zoom = Vector2(2.5, 2.5)
 limit_left = -308
 limit_top = -453
 limit_right = 668
-limit_bottom = 292
+limit_bottom = 809
 limit_smoothed = true
 
 [node name="Inv_UI" parent="." instance=ExtResource("4_dqkch")]
