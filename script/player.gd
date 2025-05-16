@@ -1,5 +1,8 @@
-
 extends CharacterBody2D
+
+signal stick_collected
+signal apple_collected
+signal slime_collected
 
 var speed = 100
 var player_state
@@ -92,7 +95,14 @@ func player():
 
 func collect(item):
 	inv.insert(item)
+	print("item")
+	if str(item) == "<Resource#-9223372005649152812>": #stick
+		emit_signal("stick_collected")
+	if str(item) == "<Resource#-9223372004256643866>": #apple
+		emit_signal("apple_collected")
+	if str(item) == "<Resource#-922332003317119759>": #slime
+		emit_signal("slime_collected")
 
 
-	
-		
+func _on_player_stick_collected():
+	$npc_quest.stick_collected()
