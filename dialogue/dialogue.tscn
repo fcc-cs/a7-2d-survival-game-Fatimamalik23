@@ -1,19 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkboybj8htsoi"]
+[gd_scene load_steps=3 format=3 uid="uid://bkboybj8htsoi"]
 
 [ext_resource type="Texture2D" uid="uid://clsy06ludv6hu" path="res://art/inventory-slot.png" id="1_k0ki1"]
+[ext_resource type="Script" uid="uid://cp7ckrxrta3wf" path="res://dialogue/dialogueplayer.gd" id="1_vigd0"]
 
 [node name="Dialogue" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 100.0
 offset_bottom = 93.0
+script = ExtResource("1_vigd0")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_left = -58.0
-offset_top = -103.0
-offset_right = 58.0
-offset_bottom = -11.0
+offset_left = -57.0
+offset_top = -68.0
+offset_right = 59.0
+offset_bottom = -13.0
 texture = ExtResource("1_k0ki1")
 patch_margin_left = 3
 patch_margin_top = 3
@@ -34,6 +36,6 @@ layout_mode = 0
 offset_left = 8.0
 offset_top = 19.0
 offset_right = 269.0
-offset_bottom = 167.0
+offset_bottom = 102.0
 scale = Vector2(0.38, 0.38)
 text = "heyya, i need to tell u smth"
