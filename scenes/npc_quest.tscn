@@ -1,0 +1,123 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc55jjhemxx4s"]
+
+[ext_resource type="Texture2D" uid="uid://clsy06ludv6hu" path="res://art/inventory-slot.png" id="1_3yyw7"]
+[ext_resource type="Script" uid="uid://chkloui871wdp" path="res://script/npc_quest.gd" id="1_yqrum"]
+
+[node name="npc_quest" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 502.0
+offset_bottom = 440.0
+script = ExtResource("1_yqrum")
+
+[node name="quest1_ui" type="NinePatchRect" parent="."]
+offset_left = -57.0
+offset_top = -68.0
+offset_right = 59.0
+offset_bottom = -13.0
+texture = ExtResource("1_3yyw7")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="quest1_ui"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 133.0
+offset_bottom = 35.0
+scale = Vector2(0.5, 0.5)
+text = "Worker Quest:"
+
+[node name="Text" type="RichTextLabel" parent="quest1_ui"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 19.0
+offset_right = 269.0
+offset_bottom = 102.0
+scale = Vector2(0.38, 0.38)
+text = "could u go pick up a stick off the ground?"
+
+[node name="yesButton1" type="Button" parent="quest1_ui"]
+modulate = Color(0.557728, 0.813848, 0.271488, 1)
+layout_mode = 0
+offset_left = 46.0
+offset_top = 32.0
+offset_right = 96.0
+offset_bottom = 72.0
+scale = Vector2(0.4, 0.4)
+text = "yes"
+
+[node name="noButton1" type="Button" parent="quest1_ui"]
+modulate = Color(1, 0.278703, 0.237066, 1)
+layout_mode = 0
+offset_left = 70.0
+offset_top = 32.0
+offset_right = 115.0
+offset_bottom = 72.0
+scale = Vector2(0.4, 0.4)
+text = "no"
+
+[node name="no_quest" type="NinePatchRect" parent="."]
+visible = false
+offset_left = -57.0
+offset_top = -68.0
+offset_right = 59.0
+offset_bottom = -13.0
+texture = ExtResource("1_3yyw7")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="no_quest"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 133.0
+offset_bottom = 35.0
+scale = Vector2(0.5, 0.5)
+text = "Worker Quest:"
+
+[node name="Text" type="RichTextLabel" parent="no_quest"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 19.0
+offset_right = 269.0
+offset_bottom = 102.0
+scale = Vector2(0.38, 0.38)
+text = "no current quest, please come back later!"
+
+[node name="finished_quest" type="NinePatchRect" parent="."]
+visible = false
+offset_left = -57.0
+offset_top = -68.0
+offset_right = 59.0
+offset_bottom = -13.0
+texture = ExtResource("1_3yyw7")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="finished_quest"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 133.0
+offset_bottom = 35.0
+scale = Vector2(0.5, 0.5)
+text = "worker"
+
+[node name="Text" type="RichTextLabel" parent="finished_quest"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 19.0
+offset_right = 269.0
+offset_bottom = 102.0
+scale = Vector2(0.38, 0.38)
+text = "Goodjob!! Thankyou."
+
+[connection signal="pressed" from="quest1_ui/yesButton1" to="." method="_on_yes_button_1_pressed"]
+[connection signal="pressed" from="quest1_ui/noButton1" to="." method="_on_no_button_1_pressed"]
